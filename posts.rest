@@ -1,0 +1,14 @@
+GET http://localhost:4000/userDetails/list
+
+###
+
+GET http://localhost:4000/userDetails/list/65a286fa470615d9dae977b8
+
+###
+
+POST http://localhost:4000/registeruser
+Content-Type: application/json
+
+{
+    "firstName": "Harish"
+}
