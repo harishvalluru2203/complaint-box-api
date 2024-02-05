@@ -6,7 +6,7 @@ GET http://localhost:4000/users/65a7b581891845b3c1c99137
 
 ###
 
-POST http://localhost:4000/user/registration
+POST http://localhost:4000/users/registration
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 
 ###
 
-PUT http://localhost:4000/user/update
+PUT http://localhost:4000/users/update
 Content-Type: application/json
 
 {
@@ -30,4 +30,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:4000/user/65a2c38caf988d8cebccefaa
+DELETE http://localhost:4000/users/65a2c38caf988d8cebccefaa
