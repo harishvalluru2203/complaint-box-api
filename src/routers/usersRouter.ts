@@ -3,7 +3,7 @@ import { User } from "../models/users.model";
 
 export const usersRouter = Router();
 
-usersRouter.get("/list", async (req, res) => {
+usersRouter.get("/", async (req, res) => {
   try {
     const users = await User.find();
     res.status(200).json(users);
