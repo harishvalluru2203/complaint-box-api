@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(process.env.MONGODB_CLOUD_URI);
 
 const mongooseConnection = mongoose.connection;
 
