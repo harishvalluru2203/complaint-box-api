@@ -44,7 +44,7 @@ app.listen("4000", () => {
 });
 
 const uri =
-  "mongodb+srv://harishvalluru22:Samvi@2203@complaint-box-cluster.jobsjmz.mongodb.net/?retryWrites=true&w=majority&directConnection=true";
+  "mongodb+srv://harishvalluru22:Samvi%402203@complaint-box-cluster.jobsjmz.mongodb.net/?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(process.env.MONGODB_CLOUD_URI, {
