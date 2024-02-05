@@ -4,9 +4,6 @@ require("dotenv").config();
 import { masterRouter } from "./src/routers/masterRouter";
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
-const uri =
-  "mongodb+srv://harishvalluru22:Samvi@complaintboxcluster.wpzuvye.mongodb.net/complaintboxcluster?retryWrites=true&w=majority";
-
 const app = express();
 
 app.use(express.json());
@@ -32,7 +29,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-// mongoose.connect(uri, {
+// mongoose.connect(process.env.MONGODB_CLOUD_URI, {
 //   useUnifiedTopology: true,
 // });
 
@@ -49,7 +46,7 @@ app.listen("4000", () => {
 });
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
+const client = new MongoClient(process.env.MONGODB_CLOUD_URI, {
   serverApi: {
     version: ServerApiVersion.v1,
     strict: true,
