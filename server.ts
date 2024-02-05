@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
-import { masterRouter } from "./routers/masterRouter";
+import { masterRouter } from "./src/routers/masterRouter";
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
 const uri =
@@ -54,6 +54,7 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   },
 });
+
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
