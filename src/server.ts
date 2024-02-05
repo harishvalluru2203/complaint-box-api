@@ -4,6 +4,9 @@ require("dotenv").config();
 import { masterRouter } from "./routers/masterRouter";
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
+const uri =
+  "mongodb+srv://harishvalluru22:Samvi@complaintboxcluster.wpzuvye.mongodb.net/?retryWrites=true&w=majority";
+
 const app = express();
 
 app.use(express.json());
@@ -29,7 +32,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-mongoose.connect(process.env.MONGODB_CLOUD_URI);
+mongoose.connect(uri);
 
 const mongooseConnection = mongoose.connection;
 
@@ -42,9 +45,6 @@ mongooseConnection.on("open", () => {
 app.listen("4000", () => {
   console.log("App running on port 4000");
 });
-
-const uri =
-  "mongodb+srv://harishvalluru22:Samvi%402203@complaint-box-cluster.jobsjmz.mongodb.net/?retryWrites=true&w=majority";
 
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
