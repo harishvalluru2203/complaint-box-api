@@ -32,15 +32,17 @@ app.use(function (req, res, next) {
   next();
 });
 
-mongoose.connect(uri);
+// mongoose.connect(uri, {
+//   useUnifiedTopology: true,
+// });
 
-const mongooseConnection = mongoose.connection;
+// const mongooseConnection = mongoose.connection;
 
 masterRouter(app);
 
-mongooseConnection.on("open", () => {
-  console.log("MONGOOSE CONNECTION ESTABLISHED");
-});
+// mongooseConnection.on("open", () => {
+//   console.log("MONGOOSE CONNECTION ESTABLISHED");
+// });
 
 app.listen("4000", () => {
   console.log("App running on port 4000");
@@ -58,7 +60,9 @@ const client = new MongoClient(uri, {
 async function run() {
   try {
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    await client.connect({
+      useUnifiedTopology: true,
+    });
     // Send a ping to confirm a successful connection
     await client.db("complaintBoxDB").command({ ping: 1 });
     console.log(
