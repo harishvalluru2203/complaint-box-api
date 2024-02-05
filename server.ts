@@ -5,7 +5,7 @@ import { masterRouter } from "./src/routers/masterRouter";
 const { MongoClient, ServerApiVersion } = require("mongodb");
 
 const uri =
-  "mongodb+srv://harishvalluru22:Samvi@complaintboxcluster.wpzuvye.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://harishvalluru22:Samvi@complaintboxcluster.wpzuvye.mongodb.net/complaintboxcluster?retryWrites=true&w=majority";
 
 const app = express();
 
