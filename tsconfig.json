@@ -6,6 +6,6 @@
     "baseUrl": "./src",
     "moduleResolution": "Node"
   },
-  "include": ["src/**/*.ts", "index.js"],
+  "include": ["src/**/*.ts", "server.ts"],
   "exclude": ["node_modules"]
 }
