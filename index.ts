@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
 import { masterRouter } from "./src/routers/masterRouter";
-const { MongoClient, ServerApiVersion } = require("mongodb");
 
 const app = express();
 
@@ -29,7 +28,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-mongoose.connect(process.env.MONGODB_LOCAL_URI);
+mongoose.connect(process.env.MONGODB_CLOUD_URI);
 
 const mongooseConnection = mongoose.connection;
 
