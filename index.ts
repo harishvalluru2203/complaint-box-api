@@ -27,9 +27,9 @@ app.use(function (req, res, next) {
   );
   next();
 });
+console.log("process.env.MONGODB_URI: ", process.env.MONGODB_URI);
 
-mongoose.connect(process.env.MONGODB_CLOUD_URI);
-
+mongoose.connect(process.env.MONGODB_URI);
 const mongooseConnection = mongoose.connection;
 
 masterRouter(app);
