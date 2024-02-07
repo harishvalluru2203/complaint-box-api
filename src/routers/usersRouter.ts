@@ -1,9 +1,11 @@
 import { Router } from "express";
 import { User } from "../models/users.model";
+import { verifyToken } from "../middleware/authMiddleware";
+const bcrypt = require("bcrypt");
 
 export const usersRouter = Router();
 
-usersRouter.get("/", async (req, res) => {
+usersRouter.get("/", verifyToken, async (req, res) => {
   try {
     const users = await User.find();
     res.status(200).json(users);
@@ -24,12 +26,13 @@ usersRouter.get("/:id", async (req, res) => {
   }
 });
 
-usersRouter.post("/registration", async (req, res) => {
+usersRouter.post("/register", async (req, res) => {
   try {
     const user = new User({
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       userName: req.body.userName,
+      password: await bcrypt.hash(req.body.password, 10),
     });
     await user.save();
     res.status(201).json(user);
