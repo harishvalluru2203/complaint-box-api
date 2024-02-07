@@ -14,7 +14,7 @@ usersRouter.get("/", verifyToken, async (req, res) => {
   }
 });
 
-usersRouter.get("/:id", async (req, res) => {
+usersRouter.get("/:id", verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) {
