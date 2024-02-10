@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { User } from "../models/users.model";
+import { User } from "../models/user.model";
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 

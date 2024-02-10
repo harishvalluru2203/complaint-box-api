@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { User } from "../models/users.model";
+import { User } from "../models/user.model";
 import { verifyToken } from "../middleware/authMiddleware";
 const bcrypt = require("bcrypt");
 
-export const usersRouter = Router();
+export const userRouter = Router();
 
-usersRouter.get("/", verifyToken, async (req, res) => {
+userRouter.get("/list", verifyToken, async (req, res) => {
   try {
     const users = await User.find();
     res.status(200).json(users);
@@ -14,7 +14,7 @@ usersRouter.get("/", verifyToken, async (req, res) => {
   }
 });
 
-usersRouter.get("/:id", verifyToken, async (req, res) => {
+userRouter.get("/:id", verifyToken, async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) {
@@ -26,7 +26,7 @@ usersRouter.get("/:id", verifyToken, async (req, res) => {
   }
 });
 
-usersRouter.post("/register", async (req, res) => {
+userRouter.post("/register", async (req, res) => {
   try {
     const user = new User({
       firstName: req.body.firstName,
@@ -41,7 +41,7 @@ usersRouter.post("/register", async (req, res) => {
   }
 });
 
-usersRouter.put("/update", async (req, res) => {
+userRouter.put("/update", async (req, res) => {
   try {
     const userToUpdate = req.body._id;
     const user = await User.findByIdAndUpdate(userToUpdate, req.body, {
@@ -57,7 +57,7 @@ usersRouter.put("/update", async (req, res) => {
   }
 });
 
-usersRouter.delete("/:id", async (req, res) => {
+userRouter.delete("/:id", async (req, res) => {
   try {
     const user = await User.findByIdAndDelete(req.params.id);
     if (!user) {
