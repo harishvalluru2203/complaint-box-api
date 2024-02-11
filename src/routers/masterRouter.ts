@@ -1,7 +1,7 @@
-import { authRouter } from "./authRouter";
+import { adminRouter } from "./adminRouter";
 import { userRouter } from "./userRouter";
 
 export const masterRouter = (app) => {
-  app.use("/auth", authRouter);
+  app.use("/admin", adminRouter);
   app.use("/user", userRouter);
 };

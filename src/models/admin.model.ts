@@ -1,6 +1,6 @@
 import * as mongoose from "mongoose";
 
-export const userSchema = new mongoose.Schema({
+export const adminSchema = new mongoose.Schema({
   id: {
     type: String,
   },
@@ -18,4 +18,4 @@ export const userSchema = new mongoose.Schema({
   },
 });
 
-export const User = mongoose.model("Users", userSchema, "users");
+export const Admin = mongoose.model("Admin", adminSchema, "admins");
