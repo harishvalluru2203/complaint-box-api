@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { User } from "../models/user.model";
 import { verifyToken } from "../middleware/authMiddleware";
-import { loginUtil } from "./adminRouter";
+import { login } from "../utils/authUtil";
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -10,7 +10,7 @@ export const userRouter = Router();
 userRouter.post("/login", async (req, res) => {
   const { userName, password } = req.body;
   try {
-    loginUtil(userName, password, "user", res);
+    login(userName, password, "user", res);
   } catch (error) {
     res.status(500).json({ error: "Login Failed" });
   }
