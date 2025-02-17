@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { login } from "../utils/authUtil";
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 export const adminRouter = Router();

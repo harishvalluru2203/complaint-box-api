@@ -1,6 +1,6 @@
 import { User } from "../models/user.model";
 import { Admin } from "../models/admin.model";
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 export const login = async (userName, password, loginType, res) => {

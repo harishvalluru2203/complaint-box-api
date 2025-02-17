@@ -9,7 +9,7 @@ const app = express();
 
 appUseUtils(app);
 
-initializeMongoose(process.env.MONGODB_URI);
+// initializeMongoose(process.env.MONGODB_URI); // Commented when working with local
 
 masterRouter(app);
 
